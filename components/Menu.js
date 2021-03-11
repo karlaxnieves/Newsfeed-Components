@@ -11,14 +11,17 @@ let menuItems = [
 
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+*/
+//   <div class="menu">
+//     <ul>
+//       {each menu item as an <li>}
+//     </ul>
+//   </div>
 
-  <div class="menu">
-    <ul>
-      {each menu item as an <li>}
-    </ul>
-  </div>
+// </div>
 
-  The 'menuMaker' takes an array of menu items as its only argument.
+/* The 'menuMaker' takes an array of menu items as its only argument.
+
 
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
@@ -31,3 +34,42 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+const menuButton = document.querySelector(".menu-button")
+
+function menuMaker(array) {
+  const menu = document.createElement('div');
+  menu.classList.add("menu")
+  const holder = document.createElement('ul');
+  menu.appendChild(holder);
+
+  array.forEach((item) => {
+    let menuItem = document.createElement('li');
+    menuItem.textContent = item
+    holder.appendChild(menuItem);
+  });
+
+  menuButton.addEventListener("click", () => {
+    menu.classList.toggle("menu--open");
+  });
+
+  return menu
+}
+
+let header = document.querySelector(".header");
+header.appendChild(menuMaker(menuItems));
+
+menuMaker(menuItems);
+
+// const menuMaker = function (array) {
+
+//   array.forEach(function (li) {
+
+//   });
+//   const menu = document.querySelector('.menu-button');
+
+//   menu.addEventListener('click', (event) => {
+//     menu.classList.toggle('menu-open');
+
+//   })
+// }
