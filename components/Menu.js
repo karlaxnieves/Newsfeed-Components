@@ -9,7 +9,18 @@ let menuItems = [
   'Log Out'
 ];
 
-/* 
+function menuMaker({ menuItems }) {
+  const menu = document.createElement('div');
+  const menuList = document.createElement('ul');
+  const items = document.createElement('li');
+
+  menu.appendChild(menuList)
+  menu.appendChild(li)
+
+  menu.classList.add('menu');
+}
+
+/*
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
   <div class="menu">
